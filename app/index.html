@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; script-src 'self'; worker-src 'self' blob:;" />
+  <title>Reader</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="drag-strip"></div>
+
+  <div id="drop" class="drop">
+    <div class="drop-inner">
+      <div class="drop-icon">▭</div>
+      <div class="drop-title">Drop a PDF here</div>
+      <div class="drop-sub">or <button id="pick" class="link">choose a file</button> <kbd>⌘O</kbd></div>
+    </div>
+  </div>
+
+  <div id="reader" class="reader hidden">
+    <div class="page-wrap">
+      <div class="paper">
+        <canvas id="canvas"></canvas>
+        <div class="grain"></div>
+      </div>
+    </div>
+    <button id="prev" class="nav nav-prev" title="Previous (←)"></button>
+    <button id="next" class="nav nav-next" title="Next (→)"></button>
+  </div>
+
+  <div id="library" class="library hidden">
+    <div class="lib-head">
+      <span class="lib-title">Library</span>
+      <span class="lib-actions">
+        <button id="lib-add" class="hud-btn">+ Add PDF</button>
+        <button id="lib-close" class="hud-btn" title="Close (Esc)">close</button>
+      </span>
+    </div>
+    <div id="lib-grid" class="lib-grid"></div>
+  </div>
+
+  <div id="hud" class="hud">
+    <span id="docinfo" class="hidden">
+      <span id="title" class="hud-title"></span>
+      <span class="hud-sep">·</span>
+      <span id="pageinfo"></span>
+      <span class="hud-sep">·</span>
+      <button id="theme" class="hud-btn" title="Paper / night (T)">night</button>
+      <button id="lib-toggle" class="hud-btn" title="Library (L)">library</button>
+      <span class="hud-sep">·</span>
+    </span>
+    <button id="hook" class="hud-btn hook" title="Claude link">claude <span class="dot"></span></button>
+  </div>
+
+  <div id="flash" class="flash"></div>
+  <script type="module" src="renderer.js"></script>
+</body>
+</html>

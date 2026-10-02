@@ -1,0 +1,34 @@
+{
+  "name": "claude-reading-break",
+  "version": "1.0.0",
+  "description": "A matte, e-ink style PDF reader that pops up while Claude Code is thinking and steps aside when the answer is ready.",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "mkdir -p app/vendor && cp node_modules/pdfjs-dist/build/pdf.mjs node_modules/pdfjs-dist/build/pdf.worker.mjs app/vendor/",
+    "start": "electron .",
+    "build": "electron-packager . Reader --out=dist --overwrite --ignore='^/(dist|docs)'"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "pdf",
+    "reader",
+    "e-ink",
+    "electron",
+    "hooks"
+  ],
+  "author": "tahaxerel",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^44.4.3"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^6.3.289"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tahaxerel/claude-reading-break.git"
+  },
+  "homepage": "https://github.com/tahaxerel/claude-reading-break#readme"
+}
